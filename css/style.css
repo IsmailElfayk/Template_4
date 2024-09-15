@@ -1,0 +1,972 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+:root {
+  --blue-color: #0075ff;
+  --blue-alt-color: #0d69d5;
+  --orange-color: #f59e0b;
+  --green-color: #22c55e;
+  --red-color: #f44336;
+  --grey-color: #888;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  /* position: relative; */
+}
+/* component  */
+.main-title {
+  margin: 20px 20px 40px;
+  text-transform: capitalize;
+  position: relative;
+}
+.main-title::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  width: 120px;
+  height: 3px;
+  background-color: white;
+}
+.main-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #000;
+}
+/* component  */
+/* start scroll bar  */
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--blue-color);
+  border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-alt-color);
+}
+/* end scroll bar  */
+/* start page  */
+.page {
+  display: flex;
+  height: 100%;
+}
+/* start sidebar  */
+.page .sidebar {
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0px 0px 10px rgb(221, 221, 221);
+  position: relative;
+  z-index: 1;
+}
+.page .sidebar .sub-side {
+  position: sticky;
+  top: 30px;
+}
+.page .sidebar h3 {
+  text-transform: capitalize;
+  position: relative;
+  text-align: center;
+  width: fit-content;
+  margin: 10px auto 50px;
+}
+.page .sidebar h3::before,
+.page .sidebar h3::after {
+  content: "";
+  background-color: black;
+  position: absolute;
+}
+.page .sidebar h3::before {
+  bottom: -14px;
+  left: -5px;
+  width: calc(100% + 10px);
+  height: 2px;
+}
+.page .sidebar h3::after {
+  border: 3px solid white;
+  bottom: -21px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.page .sidebar ul li {
+  margin-bottom: 5px;
+}
+.page .sidebar ul li a {
+  padding: 10px;
+  font-size: 14px;
+  color: black;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+}
+.page .sidebar ul li a.active,
+.page .sidebar ul li a:hover {
+  background-color: rgb(246, 246, 246);
+}
+.page .sidebar ul li a i {
+  margin: 0 10px 0 0;
+}
+.page .sidebar ul li a span {
+  text-transform: capitalize;
+}
+/* end sidebar  */
+/* start content  */
+.page .content {
+  background: #f1f5f9;
+  width: 100%;
+  overflow: hidden;
+  /* flex: 1; */
+}
+/* start header  */
+.page .content .header {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+.page .content .header input {
+  padding: 10px 10px 10px 30px;
+  border-radius: 10px;
+  border: 1px #ccc solid;
+  margin-left: 5px;
+  width: 160px;
+}
+.page .content .header .search {
+  position: relative;
+}
+.page .content .header .search::before {
+  font-family: var(--fa-style-family-classic);
+  content: "\f002";
+  font-weight: 900;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: var(--grey-color);
+}
+.page .content .header input::placeholder {
+  text-transform: capitalize;
+  transition: 0.3s;
+}
+.page .content .header input:focus {
+  outline: none;
+}
+.page .content .header input:focus::placeholder {
+  opacity: 0;
+}
+.page .content .header .icons {
+  display: flex;
+  align-items: center;
+}
+.page .content .header .icons .notifications {
+  position: relative;
+  margin: 0 15px;
+}
+.page .content .header .icons .notifications::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  right: -7px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--red-color);
+  border-radius: 50%;
+}
+.page .content .header .icons img {
+  width: 32px;
+  height: 32px;
+}
+/* end header  */
+/* start welcome  */
+.container {
+  margin: 0 20px 20px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  gap: 20px;
+}
+.container .welcome {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.container .welcome .intro {
+  background-color: #eee;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.container .welcome .intro h2 {
+  text-transform: capitalize;
+}
+.container .welcome .intro p {
+  text-transform: capitalize;
+  margin-top: 5px;
+  margin-bottom: 16px;
+  color: var(--grey-color);
+}
+.container .welcome .intro > img {
+  width: 200px;
+  margin-bottom: -10px;
+}
+.container .welcome > img {
+  width: 64px;
+  height: 64px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  margin-left: 20px;
+  margin-top: -32px;
+  box-shadow: 0 0 5px #ddd;
+}
+.welcome > div:nth-child(3) {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin: 20px 0;
+  padding: 20px;
+  display: flex;
+}
+.welcome > div:nth-child(3) div {
+  flex: 1;
+  text-align: center;
+}
+.welcome > div:nth-child(3) div span {
+  display: block;
+  text-transform: capitalize;
+  margin-top: 10px;
+  color: var(--grey-color);
+  font-size: 14px;
+}
+.welcome a {
+  display: block;
+  width: fit-content;
+  margin: 0 15px 15px auto;
+  padding: 4px 10px;
+  background-color: var(--blue-color);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+.welcome a:hover {
+  background-color: var(--blue-alt-color);
+}
+/* end welcome  */
+/* start quick draft */
+.page .quick-draft {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+.page .quick-draft > h2 {
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+.page .quick-draft > p {
+  text-transform: capitalize;
+  font-size: 15px;
+  color: var(--grey-color);
+  margin-bottom: 20px;
+}
+.page .quick-draft > input {
+  width: 100%;
+  display: block;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #eee;
+  border-radius: 6px;
+}
+.page .quick-draft > input::placeholder {
+  text-transform: capitalize;
+}
+.page .quick-draft > textarea {
+  width: 100%;
+  resize: none;
+  min-height: 180px;
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+.page .quick-draft > textarea::placeholder {
+  text-transform: capitalize;
+}
+.page .quick-draft > button {
+  display: block;
+  font-size: 14px;
+  text-transform: capitalize;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background-color: var(--blue-color);
+  transition: 0.3s;
+  margin-left: auto;
+}
+.page .quick-draft > button:hover {
+  background-color: var(--blue-alt-color);
+}
+/* end quick draft */
+/* start Yearly Targets */
+.page .yearly-targets {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+.page .yearly-targets > h2 {
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+.page .yearly-targets > p {
+  text-transform: capitalize;
+  font-size: 15px;
+  color: var(--grey-color);
+  margin-bottom: 20px;
+}
+.page .yearly-targets > .target-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.page .yearly-targets > .target-row > div:first-child {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+.page .yearly-targets > .money > div:first-child {
+  background-color: rgb(0 117 255 / 20%);
+  color: var(--blue-color);
+}
+.page .yearly-targets > .projects > div:first-child {
+  background-color: rgb(245 158 11 / 20%);
+  color: var(--orange-color);
+}
+.page .yearly-targets > .team > div:first-child {
+  background-color: rgb(34 197 94 / 20%);
+  color: var(--green-color);
+}
+.page .yearly-targets > .target-row .details {
+  flex: 1;
+}
+.page .yearly-targets > .target-row .details span:first-child {
+  font-size: 14px;
+  color: var(--grey-color);
+  text-transform: capitalize;
+}
+.page .yearly-targets > .target-row .details span:nth-child(2) {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.page .yearly-targets > .target-row .details .progress {
+  height: 4px;
+  width: 100%;
+  background-color: rgb(0 117 255 / 20%);
+  position: relative;
+}
+.page .yearly-targets > .target-row .details .progress > span {
+  height: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.page .yearly-targets > .money .details .progress > span {
+  background-color: var(--blue-color);
+}
+.page .yearly-targets > .projects .details .progress > span {
+  background-color: var(--orange-color);
+}
+.page .yearly-targets > .team .details .progress > span {
+  background-color: var(--green-color);
+}
+.page .yearly-targets > .target-row .details .progress > span > span {
+  position: absolute;
+  color: #fff;
+  background-color: inherit;
+  padding: 2px 4px;
+  border-radius: 6px;
+  transform: translateX(50%);
+  top: -32px;
+  right: 0;
+}
+.page .yearly-targets > .target-row .details .progress > span > span::after {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0;
+  border-style: solid;
+  border-width: 5px;
+  bottom: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.page .yearly-targets > .money .details .progress > span > span::after {
+  border-color: var(--blue-color) transparent transparent;
+}
+.page .yearly-targets > .projects .details .progress > span > span::after {
+  border-color: var(--orange-color) transparent transparent;
+}
+.page .yearly-targets > .team .details .progress > span > span::after {
+  border-color: var(--green-color) transparent transparent;
+}
+/* end Yearly Targets */
+/* start tickets statistics */
+.page .content .tickets-statistics {
+  background-color: #fff;
+  padding: 20px;
+  text-transform: capitalize;
+  border-radius: 10px;
+}
+.page .content .tickets-statistics h2 {
+  margin-bottom: 10px;
+}
+.page .content .tickets-statistics p {
+  font-size: 14px;
+  color: var(--grey-color);
+  margin-bottom: 20px;
+}
+.page .content .tickets-statistics .details {
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.page .content .tickets-statistics .details .box {
+  border-radius: 10px;
+  padding: 20px;
+  min-width: 45%;
+  flex: 1;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--grey-color);
+}
+.page .content .tickets-statistics .details .box i {
+  margin-bottom: 10px;
+}
+.page .content .tickets-statistics .details .box:first-child i {
+  color: var(--orange-color);
+}
+.page .content .tickets-statistics .details .box:nth-child(2) i {
+  color: var(--blue-color);
+}
+.page .content .tickets-statistics .details .box:nth-child(3) i {
+  color: var(--green-color);
+}
+.page .content .tickets-statistics .details .box:last-child i {
+  color: var(--red-color);
+}
+.page .content .tickets-statistics .details .box span {
+  font-size: 25px;
+  font-weight: bold;
+  color: #000;
+}
+/* end tickets statistics */
+/* start latest news */
+.page .content .latest-news {
+  text-transform: capitalize;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.page .content .latest-news h2 {
+  margin-bottom: 20px;
+}
+.page .content .latest-news .box {
+  display: flex;
+  align-items: center;
+}
+.page .content .latest-news .box:not(:last-child) {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+}
+.page .content .latest-news .box .info {
+  width: 100%;
+}
+.page .content .latest-news .box .info h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+.page .content .latest-news .box .info p {
+  font-size: 14px;
+  color: var(--grey-color);
+}
+.page .content .latest-news .box img {
+  margin-right: 15px;
+  border-radius: 6px;
+  max-width: 100px;
+}
+.page .content .latest-news .box div:nth-child(3) {
+  background-color: #eee;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-wrap: nowrap;
+  font-size: 13px;
+}
+/* end latest news */
+/* start latest tasks */
+.page .content .latest-tasks {
+  background-color: #fff;
+  padding: 20px;
+  text-transform: capitalize;
+}
+.page .content .latest-tasks h2 {
+  margin-bottom: 20px;
+}
+.page .content .latest-tasks .box {
+  display: flex;
+  align-items: center;
+}
+.page .content .latest-tasks .box:not(:last-child) {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+.page .content .latest-tasks .box div {
+  flex: 1;
+}
+.page .content .latest-tasks .box div h3 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.page .content .latest-tasks .box div p {
+  color: var(--grey-color);
+}
+.page .content .latest-tasks .box i {
+  transition: 0.3s;
+}
+.page .content .latest-tasks .box i:hover {
+  color: var(--red-color);
+}
+.page .content .latest-tasks .deleted {
+  opacity: 0.3;
+}
+.page .content .latest-tasks .deleted h3,
+.page .content .latest-tasks .deleted p {
+  text-decoration: line-through;
+}
+/* end latest tasks */
+/* start top search items */
+.page .content .top-search-items {
+  background-color: #fff;
+  padding: 20px;
+  text-transform: capitalize;
+  border-radius: 10px;
+}
+.page .content .top-search-items h2 {
+  margin-bottom: 20px;
+}
+.page .content .top-search-items > div {
+  display: flex;
+  justify-content: space-between;
+}
+.page .content .top-search-items > div:first-of-type {
+  color: var(--grey-color);
+  margin-bottom: 10px;
+}
+.page .content .top-search-items > div:not(:first-of-type) {
+  padding: 15px 0;
+}
+.page .content .top-search-items > div:not(:first-of-type) span:nth-child(2) {
+  background-color: #eee;
+  padding: 4px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+/* end top search items */
+/* start latest uploads */
+.page .content .latest-uploads {
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 20px;
+}
+.page .content .latest-uploads h2 {
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+.page .content .latest-uploads > ul li {
+  display: flex;
+  align-items: center;
+}
+.page .content .latest-uploads > ul li:not(:last-child) {
+  padding: 0 0 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+.page .content .latest-uploads > ul li img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.page .content .latest-uploads > ul li div:nth-child(2) span {
+  display: block;
+}
+.page .content .latest-uploads > ul li div:nth-child(2) > span:nth-child(2) {
+  font-size: 15px;
+  color: var(--grey-color);
+  margin-top: 2px;
+  text-transform: capitalize;
+}
+
+.page .content .latest-uploads > ul li div:nth-child(3) {
+  flex: 1;
+}
+.page .content .latest-uploads > ul li div:last-child {
+  font-size: 13px;
+  padding: 4px 10px;
+  background-color: #eee;
+  border-radius: 6px;
+}
+/* end latest uploads */
+/* start last project progress  */
+.page .content .last-project-progress {
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 20px;
+  text-transform: capitalize;
+  position: relative;
+}
+.page .content .last-project-progress h2 {
+  margin-bottom: 20px;
+}
+.page .content .last-project-progress > ul li {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+}
+.page .content .last-project-progress > ul li div:first-child {
+  height: 23px;
+  width: 23px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  outline: 2px solid var(--blue-color);
+  margin-right: 15px;
+  position: relative;
+}
+.page
+  .content
+  .last-project-progress
+  > ul
+  li:not(:last-child)
+  div:first-child::before {
+  content: "";
+  position: absolute;
+  top: calc(100% + 3px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 22px;
+  background-color: var(--blue-color);
+}
+.page .content .last-project-progress > ul li.done div:first-child {
+  background-color: var(--blue-color);
+}
+.page .content .last-project-progress > ul li.current div:first-child {
+  animation: flashing 2s linear infinite;
+}
+@keyframes flashing {
+  0 {
+    background-color: #fff;
+  }
+  40%,
+  60% {
+    background-color: var(--blue-color);
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+.page .content .last-project-progress img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 160px;
+  opacity: 0.1;
+}
+/* end last project progress  */
+/* start reminders */
+.page .content .reminders {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-transform: capitalize;
+}
+.page .content .reminders h2 {
+  margin-bottom: 20px;
+}
+.page .content .reminders .box {
+  display: flex;
+  margin-top: 15px;
+}
+.page .content .reminders .box div:first-child {
+  width: 30px;
+  position: relative;
+}
+.page .content .reminders .box:nth-of-type(1) div:first-child {
+  border-right: 2px solid var(--blue-color);
+}
+.page .content .reminders .box:nth-of-type(2) div:first-child {
+  border-right: 2px solid var(--green-color);
+}
+.page .content .reminders .box:nth-of-type(3) div:first-child {
+  border-right: 2px solid var(--orange-color);
+}
+.page .content .reminders .box:nth-of-type(4) div:first-child {
+  border-right: 2px solid var(--red-color);
+}
+.page .content .reminders .box div:first-child::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  border-radius: 50%;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.page .content .reminders .box:nth-of-type(1) div:first-child::before {
+  background-color: var(--blue-color);
+}
+.page .content .reminders .box:nth-of-type(2) div:first-child::before {
+  background-color: var(--green-color);
+}
+.page .content .reminders .box:nth-of-type(3) div:first-child::before {
+  background-color: var(--orange-color);
+}
+.page .content .reminders .box:nth-of-type(4) div:first-child::before {
+  background-color: var(--red-color);
+}
+.page .content .reminders .box div:nth-child(2) {
+  padding-left: 15px;
+}
+.page .content .reminders .box p {
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.page .content .reminders .box span {
+  font-size: 13px;
+  color: var(--grey-color);
+}
+/* end reminders */
+/* start latest post  */
+.page .content .latest-post {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-transform: capitalize;
+}
+.page .content .latest-post h2 {
+  margin-bottom: 20px;
+}
+.page .content .latest-post .user {
+  display: flex;
+}
+.page .content .latest-post .user img {
+  width: 48px;
+  height: 48px;
+  margin-right: 15px;
+}
+.page .content .latest-post .user .info .name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.page .content .latest-post .user .info .time {
+  color: var(--grey-color);
+}
+.page .content .latest-post .post {
+  margin: 20px 0;
+  padding: 20px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  line-height: 1.8;
+  min-height: 140px;
+}
+.page .content .latest-post .reactions {
+  display: flex;
+  justify-content: space-between;
+  color: var(--grey-color);
+}
+.page .content .latest-post .reactions i {
+  margin-right: 4px;
+}
+/* end latest post  */
+/* start social media stats  */
+.page .content .social-media-stats {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-transform: capitalize;
+}
+.page .content .social-media-stats h2 {
+  margin-bottom: 20px;
+}
+.page .content .social-media-stats > div {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 10px;
+}
+.page .content .social-media-stats .twitter {
+  background-color: rgb(29 161 242 / 20%);
+}
+.page .content .social-media-stats .facebook {
+  background-color: rgb(24 119 242 / 20%);
+}
+.page .content .social-media-stats .youtube {
+  background-color: rgb(255 0 0 / 20%);
+}
+.page .content .social-media-stats .linkedin {
+  background-color: rgb(0 119 181 / 20%);
+}
+.page .content .social-media-stats div div.icon {
+  display: flex;
+  width: 56px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px 0;
+  color: #fff;
+  align-self: stretch;
+  transition: 0.3s;
+}
+.page .content .social-media-stats div div.icon:hover {
+  transform: rotate(5deg);
+}
+.page .content .social-media-stats .twitter div.icon {
+  background-color: #1da1f2;
+}
+.page .content .social-media-stats .facebook div.icon {
+  background-color: #1877f2;
+}
+.page .content .social-media-stats .youtube div.icon {
+  background-color: #ff0000;
+}
+.page .content .social-media-stats .linkedin div.icon {
+  background-color: #0077b5;
+}
+.page .content .social-media-stats div span {
+  padding: 15px;
+  height: 55px;
+  flex: 1;
+}
+.page .content .social-media-stats .twitter span {
+  color: #1da1f2;
+}
+.page .content .social-media-stats .facebook span {
+  color: #1877f2;
+}
+.page .content .social-media-stats .youtube span {
+  color: #ff0000;
+}
+.page .content .social-media-stats .linkedin span {
+  color: #0077b5;
+}
+.page .content .social-media-stats > div a {
+  padding: 4px 10px;
+  font-size: 13px;
+  background-color: #1da1f2;
+  color: #fff;
+  text-transform: capitalize;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+.page .content .social-media-stats .twitter a {
+  background-color: #1da1f2;
+}
+.page .content .social-media-stats .facebook a {
+  background-color: #1877f2;
+}
+.page .content .social-media-stats .youtube a {
+  background-color: #ff0000;
+}
+.page .content .social-media-stats .linkedin a {
+  background-color: #0077b5;
+}
+/* end social media stats  */
+/* start projects  */
+.page .content .projects {
+  margin: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+.page .content .projects h2 {
+  margin-bottom: 20px;
+}
+.page .content .projects table {
+  border-spacing: 0;
+}
+.page .content .projects table thead {
+  background-color: #eee;
+}
+.page .content .projects > div {
+  overflow-x: auto;
+}
+.page .content .projects table {
+  width: 100%;
+  min-width: 730px;
+}
+.page .content .projects table td,
+.page .content .projects table th {
+  text-align: left;
+  padding: 15px;
+}
+.page .content .projects table img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  padding: 2px;
+  background-color: #fff;
+  margin-left: -20px;
+}
+.page .content .projects table tbody tr td:last-child span {
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-wrap: nowrap;
+}
+.page .content .projects table tbody .pending td:last-child span {
+  background-color: var(--orange-color);
+}
+.page .content .projects table tbody .completed td:last-child span {
+  background-color: var(--green-color);
+}
+.page .content .projects table tbody .rejected td:last-child span {
+  background-color: var(--red-color);
+}
+.page .content .projects table tbody .progress td:last-child span {
+  background-color: var(--blue-color);
+}
+/* end projects  */
+/* end content  */
+/* end page  */
